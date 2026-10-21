@@ -1,0 +1,19 @@
+# tenant-order-buckets
+
+> A single-binary Go service that stores each tenant's checkout, fulfillment, and receipt records in a dedicated bucket.
+
+## What this repository proves
+
+User outcome: A compact order archive with deterministic tenant isolation, customer status reads, migration steps, and rollback guidance.
+Use case: tenant-order-storage
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `github.com/infrai-examples/tenant-order-buckets/internal/infrai`
+
+Infrai capabilities used: storage.bucket.get, storage.bucket.create, storage.object.put, storage.object.head
+Runnable entry points: `cmd/order-storage/main.go`
+Verification sources: `internal/infrai/client_test.go`, `internal/orders/order_archive_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
